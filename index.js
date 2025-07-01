@@ -7,7 +7,8 @@ Number.prototype.divide = function (divisor) {
 };
 
 const barHeight = (x, waveLength, amplitude) => {
-	return (Math.sin((x * (Math.PI * 2)) / waveLength) * amplitude * 2) / 2 + amplitude;
+	// Add 10px at the end to avoid waves hitting the bottom edge
+	return (Math.sin((x * (Math.PI * 2)) / waveLength) * amplitude * 2) / 2 + amplitude + 10;
 };
 
 const paint = (container, waves, time) => {
@@ -58,23 +59,23 @@ const height = core.clientHeight;
 const waves = [
 	{
 		waveLength: width / 4,
-		amplitude: height / 2,
+		amplitude: height / 4.2,
 		direction: 1,
-		speed: 10,
+		speed: 3,
 		enabled: wave1Checkbox.checked,
 	},
 	{
-		waveLength: width / 8,
-		amplitude: height / 3,
+		waveLength: width / 3.8,
+		amplitude: height / 2.7,
 		direction: 1,
-		speed: 20,
+		speed: 4,
 		enabled: wave2Checkbox.checked,
 	},
 	{
-		waveLength: width / 5,
-		amplitude: height / 2.5,
+		waveLength: width / 5.3,
+		amplitude: height / 2.4,
 		direction: -1,
-		speed: 15,
+		speed: 5,
 		enabled: wave3Checkbox.checked,
 	},
 ];
@@ -89,4 +90,4 @@ setInterval(() => {
 		waves.filter((w) => w.enabled),
 		time,
 	);
-}, 100);
+}, 30);
