@@ -1,5 +1,25 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+#core {
+	background: rgb(237, 233, 233);
+	border: 1px solid black;
+	width: 400px;
+	height: 200px;
+	position: absolute;
+	left: 50%;
+	top: 10%;
+	transform: translateX(-50%);
+}
+
+.bar {
+	background: rgb(8, 91, 216);
+	width: 1px;
+	position: absolute;
+	bottom: 0;
 }
