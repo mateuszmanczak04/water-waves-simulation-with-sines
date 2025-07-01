@@ -43,7 +43,6 @@ const waves = [
 	{ waveLength: width / 4, amplitude: height / 2, direction: 1, speed: 10 },
 	{ waveLength: width / 8, amplitude: height / 3, direction: 1, speed: 20 },
 	{ waveLength: width / 5, amplitude: height / 2.5, direction: -1, speed: 15 },
-	{ waveLength: width / 2, amplitude: height / 8, direction: 1, speed: 13 },
 ];
 
 paint(core, waves);
