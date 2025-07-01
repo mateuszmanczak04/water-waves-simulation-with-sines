@@ -6,15 +6,24 @@
 	padding: 0;
 }
 
+body {
+	margin: 20px;
+}
+
 #core {
 	background: rgb(237, 233, 233);
 	border: 1px solid black;
 	width: 400px;
 	height: 200px;
-	position: absolute;
-	left: 50%;
-	top: 10%;
-	transform: translateX(-50%);
+	position: relative;
+}
+
+#controls {
+	margin-top: 10px;
+	background: rgb(237, 233, 233);
+	border: 1px solid black;
+	width: 400px;
+	padding: 10px;
 }
 
 .bar {

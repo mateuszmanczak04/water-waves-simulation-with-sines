@@ -34,15 +34,49 @@ const paint = (container, waves, time) => {
 	}
 };
 
+const controls = document.querySelector('#controls');
+const wave1Checkbox = document.querySelector('#controls #wave1');
+const wave2Checkbox = document.querySelector('#controls #wave2');
+const wave3Checkbox = document.querySelector('#controls #wave3');
+
+wave1Checkbox.addEventListener('change', (e) => {
+	waves[0].enabled = e.target.checked;
+});
+wave2Checkbox.addEventListener('change', (e) => {
+	waves[1].enabled = e.target.checked;
+});
+
+wave3Checkbox.addEventListener('change', (e) => {
+	waves[2].enabled = e.target.checked;
+});
+
 const core = document.querySelector('#core');
 const width = core.clientWidth;
 const height = core.clientHeight;
 
 // Direction: 1=right, -1=left
 const waves = [
-	{ waveLength: width / 4, amplitude: height / 2, direction: 1, speed: 10 },
-	{ waveLength: width / 8, amplitude: height / 3, direction: 1, speed: 20 },
-	{ waveLength: width / 5, amplitude: height / 2.5, direction: -1, speed: 15 },
+	{
+		waveLength: width / 4,
+		amplitude: height / 2,
+		direction: 1,
+		speed: 10,
+		enabled: wave1Checkbox.checked,
+	},
+	{
+		waveLength: width / 8,
+		amplitude: height / 3,
+		direction: 1,
+		speed: 20,
+		enabled: wave2Checkbox.checked,
+	},
+	{
+		waveLength: width / 5,
+		amplitude: height / 2.5,
+		direction: -1,
+		speed: 15,
+		enabled: wave3Checkbox.checked,
+	},
 ];
 
 paint(core, waves);
@@ -50,5 +84,9 @@ let time = 0;
 setInterval(() => {
 	core.innerHTML = '';
 	time += 0.1;
-	paint(core, waves, time);
+	paint(
+		core,
+		waves.filter((w) => w.enabled),
+		time,
+	);
 }, 100);
