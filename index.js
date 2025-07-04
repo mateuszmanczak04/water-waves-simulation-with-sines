@@ -41,16 +41,19 @@ const wave1Checkbox = document.querySelector('#controls #wave1');
 const wave1Range = document.querySelector('#controls #wave1-length');
 const wave1AmplitudeRange = document.querySelector('#controls #wave1-amplitude');
 const wave1SpeedRange = document.querySelector('#controls #wave1-speed');
+const wave1DirectionSelect = document.querySelector('#controls #wave1-direction');
 
 const wave2Checkbox = document.querySelector('#controls #wave2');
 const wave2Range = document.querySelector('#controls #wave2-length');
 const wave2AmplitudeRange = document.querySelector('#controls #wave2-amplitude');
 const wave2SpeedRange = document.querySelector('#controls #wave2-speed');
+const wave2DirectionSelect = document.querySelector('#controls #wave2-direction');
 
 const wave3Checkbox = document.querySelector('#controls #wave3');
 const wave3Range = document.querySelector('#controls #wave3-length');
 const wave3AmplitudeRange = document.querySelector('#controls #wave3-amplitude');
 const wave3SpeedRange = document.querySelector('#controls #wave3-speed');
+const wave3DirectionSelect = document.querySelector('#controls #wave3-direction');
 
 wave1Checkbox.addEventListener('change', (e) => {
 	waves[0].enabled = e.target.checked;
@@ -69,6 +72,10 @@ wave1AmplitudeRange.addEventListener('input', (e) => {
 wave1SpeedRange.addEventListener('input', (e) => {
 	const value = Number(event.target.value);
 	waves[0].speed = value;
+});
+
+wave1DirectionSelect.addEventListener('input', (e) => {
+	waves[0].direction = Number(e.target.value);
 });
 
 wave2Checkbox.addEventListener('change', (e) => {
@@ -90,6 +97,10 @@ wave2SpeedRange.addEventListener('input', (e) => {
 	waves[1].speed = value;
 });
 
+wave2DirectionSelect.addEventListener('input', (e) => {
+	waves[1].direction = Number(e.target.value);
+});
+
 wave3Range.addEventListener('input', (e) => {
 	const value = Number(event.target.value);
 	waves[2].waveLength = value;
@@ -109,6 +120,10 @@ wave3SpeedRange.addEventListener('input', (e) => {
 	waves[2].speed = value;
 });
 
+wave3DirectionSelect.addEventListener('input', (e) => {
+	waves[2].direction = Number(e.target.value);
+});
+
 const core = document.querySelector('#core');
 const width = core.clientWidth;
 const height = core.clientHeight;
@@ -117,23 +132,23 @@ const height = core.clientHeight;
 const waves = [
 	{
 		waveLength: Number(wave1Range.value),
-		amplitude: height / 4.2,
-		direction: 1,
-		speed: 3,
+		amplitude: Number(wave1AmplitudeRange.value),
+		direction: Number(wave1DirectionSelect.value),
+		speed: Number(wave1SpeedRange.value),
 		enabled: wave1Checkbox.checked,
 	},
 	{
 		waveLength: Number(wave2Range.value),
-		amplitude: height / 2.7,
-		direction: 1,
-		speed: 4,
+		amplitude: Number(wave2AmplitudeRange.value),
+		direction: Number(wave2DirectionSelect.value),
+		speed: Number(wave2SpeedRange.value),
 		enabled: wave2Checkbox.checked,
 	},
 	{
 		waveLength: Number(wave3Range.value),
-		amplitude: height / 2.4,
-		direction: -1,
-		speed: 5,
+		amplitude: Number(wave3AmplitudeRange.value),
+		direction: Number(wave3DirectionSelect.value),
+		speed: Number(wave3SpeedRange.value),
 		enabled: wave3Checkbox.checked,
 	},
 ];
