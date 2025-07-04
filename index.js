@@ -40,14 +40,17 @@ const controls = document.querySelector('#controls');
 const wave1Checkbox = document.querySelector('#controls #wave1');
 const wave1Range = document.querySelector('#controls #wave1-length');
 const wave1AmplitudeRange = document.querySelector('#controls #wave1-amplitude');
+const wave1SpeedRange = document.querySelector('#controls #wave1-speed');
 
 const wave2Checkbox = document.querySelector('#controls #wave2');
 const wave2Range = document.querySelector('#controls #wave2-length');
 const wave2AmplitudeRange = document.querySelector('#controls #wave2-amplitude');
+const wave2SpeedRange = document.querySelector('#controls #wave2-speed');
 
 const wave3Checkbox = document.querySelector('#controls #wave3');
 const wave3Range = document.querySelector('#controls #wave3-length');
 const wave3AmplitudeRange = document.querySelector('#controls #wave3-amplitude');
+const wave3SpeedRange = document.querySelector('#controls #wave3-speed');
 
 wave1Checkbox.addEventListener('change', (e) => {
 	waves[0].enabled = e.target.checked;
@@ -61,6 +64,11 @@ wave1Range.addEventListener('input', (e) => {
 wave1AmplitudeRange.addEventListener('input', (e) => {
 	const value = Number(event.target.value);
 	waves[0].amplitude = value;
+});
+
+wave1SpeedRange.addEventListener('input', (e) => {
+	const value = Number(event.target.value);
+	waves[0].speed = value;
 });
 
 wave2Checkbox.addEventListener('change', (e) => {
@@ -77,6 +85,11 @@ wave2AmplitudeRange.addEventListener('input', (e) => {
 	waves[1].amplitude = value;
 });
 
+wave2SpeedRange.addEventListener('input', (e) => {
+	const value = Number(event.target.value);
+	waves[1].speed = value;
+});
+
 wave3Range.addEventListener('input', (e) => {
 	const value = Number(event.target.value);
 	waves[2].waveLength = value;
@@ -89,6 +102,11 @@ wave3Checkbox.addEventListener('change', (e) => {
 wave3AmplitudeRange.addEventListener('input', (e) => {
 	const value = Number(event.target.value);
 	waves[2].amplitude = value;
+});
+
+wave3SpeedRange.addEventListener('input', (e) => {
+	const value = Number(event.target.value);
+	waves[2].speed = value;
 });
 
 const core = document.querySelector('#core');
