@@ -36,12 +36,18 @@ const paint = (container, waves, time) => {
 };
 
 const controls = document.querySelector('#controls');
+
 const wave1Checkbox = document.querySelector('#controls #wave1');
 const wave1Range = document.querySelector('#controls #wave1-length');
+const wave1AmplitudeRange = document.querySelector('#controls #wave1-amplitude');
+
 const wave2Checkbox = document.querySelector('#controls #wave2');
 const wave2Range = document.querySelector('#controls #wave2-length');
+const wave2AmplitudeRange = document.querySelector('#controls #wave2-amplitude');
+
 const wave3Checkbox = document.querySelector('#controls #wave3');
 const wave3Range = document.querySelector('#controls #wave3-length');
+const wave3AmplitudeRange = document.querySelector('#controls #wave3-amplitude');
 
 wave1Checkbox.addEventListener('change', (e) => {
 	waves[0].enabled = e.target.checked;
@@ -50,6 +56,11 @@ wave1Checkbox.addEventListener('change', (e) => {
 wave1Range.addEventListener('input', (e) => {
 	const value = Number(event.target.value);
 	waves[0].waveLength = value;
+});
+
+wave1AmplitudeRange.addEventListener('input', (e) => {
+	const value = Number(event.target.value);
+	waves[0].amplitude = value;
 });
 
 wave2Checkbox.addEventListener('change', (e) => {
@@ -61,6 +72,11 @@ wave2Range.addEventListener('input', (e) => {
 	waves[1].waveLength = value;
 });
 
+wave2AmplitudeRange.addEventListener('input', (e) => {
+	const value = Number(event.target.value);
+	waves[1].amplitude = value;
+});
+
 wave3Range.addEventListener('input', (e) => {
 	const value = Number(event.target.value);
 	waves[2].waveLength = value;
@@ -68,6 +84,11 @@ wave3Range.addEventListener('input', (e) => {
 
 wave3Checkbox.addEventListener('change', (e) => {
 	waves[2].enabled = e.target.checked;
+});
+
+wave3AmplitudeRange.addEventListener('input', (e) => {
+	const value = Number(event.target.value);
+	waves[2].amplitude = value;
 });
 
 const core = document.querySelector('#core');
