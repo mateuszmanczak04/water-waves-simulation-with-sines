@@ -37,14 +37,33 @@ const paint = (container, waves, time) => {
 
 const controls = document.querySelector('#controls');
 const wave1Checkbox = document.querySelector('#controls #wave1');
+const wave1Range = document.querySelector('#controls #wave1-length');
 const wave2Checkbox = document.querySelector('#controls #wave2');
+const wave2Range = document.querySelector('#controls #wave2-length');
 const wave3Checkbox = document.querySelector('#controls #wave3');
+const wave3Range = document.querySelector('#controls #wave3-length');
 
 wave1Checkbox.addEventListener('change', (e) => {
 	waves[0].enabled = e.target.checked;
 });
+
+wave1Range.addEventListener('input', (e) => {
+	const value = Number(event.target.value);
+	waves[0].waveLength = value;
+});
+
 wave2Checkbox.addEventListener('change', (e) => {
 	waves[1].enabled = e.target.checked;
+});
+
+wave2Range.addEventListener('input', (e) => {
+	const value = Number(event.target.value);
+	waves[1].waveLength = value;
+});
+
+wave3Range.addEventListener('input', (e) => {
+	const value = Number(event.target.value);
+	waves[2].waveLength = value;
 });
 
 wave3Checkbox.addEventListener('change', (e) => {
@@ -58,21 +77,21 @@ const height = core.clientHeight;
 // Direction: 1=right, -1=left
 const waves = [
 	{
-		waveLength: width / 4,
+		waveLength: Number(wave1Range.value),
 		amplitude: height / 4.2,
 		direction: 1,
 		speed: 3,
 		enabled: wave1Checkbox.checked,
 	},
 	{
-		waveLength: width / 3.8,
+		waveLength: Number(wave2Range.value),
 		amplitude: height / 2.7,
 		direction: 1,
 		speed: 4,
 		enabled: wave2Checkbox.checked,
 	},
 	{
-		waveLength: width / 5.3,
+		waveLength: Number(wave3Range.value),
 		amplitude: height / 2.4,
 		direction: -1,
 		speed: 5,
